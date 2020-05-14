@@ -1,0 +1,68 @@
+HOME - return home page (index.hbs)
+    
+    app.get('/',(req,res)=>{
+	res.render('index')
+    })
+//===================================
+MENS - queries all items under mens category and returns
+    
+    app.use('/shop/mens',shopRouter)
+
+    router.post('/mens', async (req,res) =>{
+	const item = new itemEntry(req.body)
+	try{
+		await item.save()
+		res.status(200).send(item)
+	} catch(e) {
+		res.status(400).send(e)
+	}
+})
+//===================================
+WOMENS - queries all items under womens category and returns
+	
+	app.use('/shop/womens',shopRouter)
+
+	router.post('/womens',async (req,res)=>{
+	const item = new itemEntry(req.body)
+	try{
+		await item.save()
+		res.status(200).send(item)
+	} catch (e){
+		res.status(400).send(e)
+	}
+})
+//==================================
+SALE - queries all items under sales category and returns
+
+	app.use('/shop/sale',shopRouter)
+	
+	router.post('/sale', async (req,res) =>{
+	const item = new itemEntry(req.body)
+	try{
+		await item.save()
+		res.status(200).send(item)
+	} catch(e) {
+		res.status(400).send(e)
+	}
+}
+//======================================
+MYACCOUNT - 
+
+
+//======================================
+CART - display items currently in CART
+
+use mongoose methods to create a new collection called CART
+when a user adds items to the cart, these specific items will be 
+added to the cart collection
+//======================================
+
+
+//======================================
+HELP
+
+render page with:
+    text box for subject of issue
+    text box for description
+    submit button attached to post req that will send email to
+        store email

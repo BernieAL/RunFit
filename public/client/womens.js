@@ -1,4 +1,4 @@
-const api =  'http://localhost:1337/mens/items' 
+const api =  'http://localhost:1337/womens/items' 
 
 //const output = document.getElementById('output')
 const itemlist = document.getElementById('realdata')
@@ -32,42 +32,10 @@ fetch(api).then(response => response.json())
           itemlist.appendChild(category)
           
 
-          
-   
-
-
-
-          
-            //const itemdiv = document.createElement('P')
-           // itemdiv.innerHTML= item.name + item.itemId 
-            //output.appendChild(itemdiv) 
-           
+        
 
         })
     })
 
 
 
-/*
-fetch(api).then(response => response.json())
-      .then(result => {
-        result.items.forEach(item => {
-          const div = document.createElement('div');
-  
-          const header = document.createElement('h3');
-          header.textContent = item.name;
-  
-          const contents = document.createElement('p');
-          contents.textContent = item.content;
-  
-          const date = document.createElement('small');
-          date.textContent = new Date(item.created);
-  
-          div.appendChild(header);
-          div.appendChild(contents);
-          div.appendChild(date);
-  
-          itemsElement.appendChild(div);
-        });
-    })
-    */

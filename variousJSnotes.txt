@@ -1,0 +1,19 @@
+AYSNC & AWAIT
+
+async before a function nmeans the function always returns a promise
+await makes JS wait until that promise settles and returns its result
+
+Ex. of a promise that resolves in 1 second
+
+async function f() {
+	
+	let promise = new Promise((resolve,reject) => {
+		setTimeout(() => resolve("done!"), 1000)
+	});
+
+	let result = await promise; //wait until the promise resolves
+
+	alert(result);
+}
+
+f();

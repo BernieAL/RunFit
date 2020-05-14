@@ -1,43 +1,34 @@
-const path = require('path')
-const express = require('express')
-const hbs = require('hbs')
-const cors = require('cors');
-const morgan = require('morgan')
-const helmet = require('helmet')
-const itemEntry = require('./models/item')
-const userEntry = require('./models/user')
-const mongoose = require('mongoose')
-require('./db/mongoose.js') //relative path from index.js
+Read Me for  RunFit Site.
+
+This is a simple ecommerce site that displays products to the users
+    and allows login, signup,and checkout functions for completing purchases
+
+Backend HTTP reqeust handler implemented on nodejs
+    to ensure server is running, in a termnal, type "node app.js" in the src directory
+    This will enable HTTP request routing as well as initiate the connection
+        to the database
+
+Database is implemented on MongoDb, is accessed using the unique
+    API string provided by MongoDb whcih gives access to the collection
+         that stores the product inventory.
+
+Handlebars templating engine is used to render the HTML pages with focus on reusability and no-code retyping.
+
+Pages:
+    index
+    login
+    men
+    signup
+    women
+    sale
+
+Port:
+    Port used is 1337
 
 
+Routes:
 
-//const cartRouter = require('./routes/cartRoutes');
-//const helpRouter = require('./routes/helpRoutes');
-//const shopRouter = require('./routes/shopRoutes');
-//const accountRoutes = require('./routes/accountRoutes')
-
-//create new express app
-const app = express()
-
-app.enable('trust proxy'); // needed for rate limiting by Client IP
-
-//setting paths for static resources (views,paths)
-const publicPath = path.join(__dirname,'../public')
-const viewsPath = path.join(__dirname,'../templates/views')
-const partialsPath = path.join(__dirname,'../templates/partials')
-
-
-//configuring express app
-app.set('view engine','hbs')
-app.set('views',viewsPath)
-hbs.registerPartials(partialsPath)
-app.use(express.static(publicPath))
-app.use(morgan('common'));
-app.use(helmet());
-app.use(cors());
-
-app.use(express.json());
-
+//routes
 //routes
 app.get('/',(req,res)=>{
 	res.render('index', {title: "RunFit"})
@@ -129,9 +120,3 @@ app.post('/sale', async (req,res) =>{
 	}
 })
 
-
-//-------------------
-
-app.listen(1337,()=> {
-	console.log('server listening on 1337')
-})

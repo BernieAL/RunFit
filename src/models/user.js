@@ -18,7 +18,10 @@ const requiredNumber = {
 }
 
 const userSchema = new Schema ({
-	name: {
+	fname: {
+	  ...requiredString,
+	},
+	lname:{
 	  ...requiredString,
 	},
 	email: {
