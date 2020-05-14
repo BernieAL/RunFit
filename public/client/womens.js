@@ -5,24 +5,25 @@ const itemlist = document.getElementById('realdata')
 //const realdata = document.getElementById('realdata')
 
 
+
 fetch(api).then(response => response.json())
     .then(data => {
         data.forEach( item => {
 
-          const name = document.createElement('LI')
-          name.innerHTML = item.name
+          const name = document.createElement('P')
+          name.innerHTML = "Name: " + item.name
 
-          const id = document.createElement('LI')
-          id.innerHTML = item.itemId
+          const id = document.createElement('P')
+          id.innerHTML = "Item Id: " + item.itemId
 
-          const price = document.createElement('LI')
-          price.innerHTML = item.price
+          const price = document.createElement('P')
+          price.innerHTML = "Price: " + item.price
 
-          const description = document.createElement('LI')
-          description.innerHTML = item.description
+          const description = document.createElement('P')
+          description.innerHTML = "Description: " + item.description
 
-          const category = document.createElement('LI')
-          category.innerHTML = item.category
+          const category = document.createElement('P')
+          category.innerHTML = "Category: " + item.category +  "<br/> " + "---------------"
 
           
           itemlist.appendChild(name)
@@ -36,6 +37,3 @@ fetch(api).then(response => response.json())
 
         })
     })
-
-
-

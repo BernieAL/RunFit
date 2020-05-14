@@ -1,4 +1,4 @@
-const api =  'http://localhost:1337/mens/items' 
+const api =  'http://localhost:1337/sale/items' 
 
 //const output = document.getElementById('output')
 const itemlist = document.getElementById('realdata')

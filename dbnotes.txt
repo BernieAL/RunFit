@@ -1,0 +1,39 @@
+//DB connection
+
+
+const uri= "mongodb+srv://store-admin:runfit@freecluster-em0ih.mongodb.net/test?retryWrites=true&w=majoritymongodb+srv://store-admin:runfit@freecluster-em0ih.mongodb.net/test?retryWrites=true&w=majority"
+
+MongoClient.connect(uri, function(err, client) {
+	if(err){
+		console.log('connection error')
+	}
+	console.log('connected')
+	
+//this is how you access a sepcific collection in a database
+	//const collection = client.db("test").collection("devices")
+	//const airbnb = client.db("sample_airbnb").collection("listingsAndReviews")
+	
+ 
+ //this is accessing a specific collection, and printing all entries 
+   	var db = client.db("sample_airbnb").collection("listingsAndReviews").find()
+	
+	db.each((err,doc)=>{
+   		console.log(doc)
+   	})
+//==========================================
+
+/* connect method of MongoClient takes url as param and a function of what to do after
+	the connect method will either populate the err arg or the client (client is the successful response that allows you to interact with the db)
+
+	what we are doing is essentially accessing the API Of the database itself. We either get an error or a successful response in which we can perform operations on.
+		(similar to making an http request)
+
+//=============================
+
+GENERAL NOTES
+
+
+There are two common approaches for interacting with a database: 
+
+Using the databases' native query language (e.g. SQL)
+Using an Object Data Model ("ODM") or an Object Relational Model ("ORM"). An ODM/ORM represents the website's data as JavaScript objects, which are then mapped to the underlying database. Some ORMs are tied to a specific database, while others provide a database-agnostic backend.
